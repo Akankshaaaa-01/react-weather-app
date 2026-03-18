@@ -16,7 +16,7 @@ export default function InfoBox({info}){
 
         <div className="cardClass">
              <Card sx={{
-    width: 650, 
+    width: 450, 
     background: "rgba(255,255,255,0.15)",
     backdropFilter: "blur(10px)",
     borderRadius: "20px",
@@ -26,7 +26,7 @@ export default function InfoBox({info}){
           <CardActionArea>
             <CardMedia
             component="img"
-            height="250"
+            height="150"
             image={info.humidity>80? RAIN_URL: info.temp>18 ?HOT_URL:COLD_URL}
             alt="rain image"
             />

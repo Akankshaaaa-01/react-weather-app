@@ -2,6 +2,7 @@ import SearchBox from './SearchBox'
 import InfoBox from './InfoBox'
 import { useState } from 'react'
 import rainVideo from "./assets/rain.mp4";
+import Sidebar from './SideBar';
 export default function WeatherApp(){
 
 let HOT_URL="https://i.pinimg.com/originals/76/7d/68/767d687e4a8b796f54553c0b0fe641a3.gif";
@@ -19,12 +20,12 @@ let RAIN_URL="https://preview.redd.it/two-anime-rain-gifs-v0-cfdsi2u0w99f1.gif?w
     sunrise: 1773277489,
     sunset: 1773320241,
     temp: 28.67,
-    tempMax: 28.67,
-    tempMin: 28.67,
+    temp_max: 28.67,
+    temp_min: 28.67,
     visibility: undefined,
     weather: "Clouds",
     weather_desc: "scattered clouds",
-    windSpeed: 2.95,
+    wind_speed: 2.95,
     icon: "10d"
    })
 
@@ -40,28 +41,17 @@ weatherInfo.humidity > 80
 : COLD_URL;
 
         return(
-            <div style={{textAlign: "center",
-            }}>
+          
+            <div className="flex h-screen">
+             
+               <Sidebar/>
+              
+           
+            <div className='flex-1 bg-mauve-100'>
+                <SearchBox updateInfo={updateInfo}/>
+                <InfoBox info={weatherInfo}/>
+            </div>
             
-            <video
-      autoPlay
-      muted
-      loop
-      style={{
-        position:"fixed",
-        top:0,
-        left:0,
-        width:"100%",
-        height:"100%",
-        objectFit:"cover",
-        zIndex:-1
-      }}
-    >
-      <source src={rainVideo} type="video/mp4"/>
-    </video>
-            <SearchBox updateInfo={updateInfo}/>
-            <InfoBox info={weatherInfo}/>
-
             </div>
         )
 }
